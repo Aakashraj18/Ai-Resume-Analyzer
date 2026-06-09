@@ -11,6 +11,7 @@ export class ApiError extends Error {
   ) {
     super(message);
     this.name = "ApiError";
+    console.error(`[API Error] ${status}: ${message}`);
   }
 }
 
