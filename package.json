@@ -7,11 +7,12 @@
     "dev:client": "react-router dev",
     "dev:server": "tsx watch server/index.ts",
     "build": "react-router build",
-    "start": "react-router-serve ./build/server/index.js",
+    "start": "NODE_ENV=production npx tsx server/index.ts",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@google/genai": "^1.0.0",
+    "@react-router/express": "^7.17.0",
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
     "bcryptjs": "^2.4.3",

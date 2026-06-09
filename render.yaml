@@ -1,9 +1,8 @@
 services:
-  # Backend API Service
   - type: web
-    name: ats-genius-api
+    name: ats-genius
     env: node
-    buildCommand: npm install --include=dev
+    buildCommand: npm install --include=dev && npm run build
     startCommand: npx tsx server/index.ts
     envVars:
       - key: NODE_ENV
@@ -16,18 +15,3 @@ services:
         sync: false # You must set this in the Render dashboard!
       - key: GEMINI_API_KEY
         sync: false # You must set this in the Render dashboard!
-
-  # Frontend Web App Service
-  - type: web
-    name: ats-genius-frontend
-    env: node
-    buildCommand: npm install --include=dev && npm run build
-    startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: ats-genius-api
-          envVarKey: RENDER_EXTERNAL_URL
