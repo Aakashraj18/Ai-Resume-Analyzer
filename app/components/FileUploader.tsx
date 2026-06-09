@@ -4,9 +4,15 @@ import { formatSize } from "~/lib/utils";
 
 interface FileUploaderProps {
   onFileSelect: (file: File | null) => void;
+  maxSizeMB?: number;
 }
 
-export default function FileUploader({ onFileSelect }: FileUploaderProps) {
+const DEFAULT_MAX_SIZE_MB = 5;
+
+export default function FileUploader({ 
+  onFileSelect, 
+  maxSizeMB = DEFAULT_MAX_SIZE_MB 
+}: FileUploaderProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const onDrop = useCallback(
