@@ -9,6 +9,12 @@ import analysisRoutes from "./routes/analysis.routes.js";
 const app = express();
 const PORT = process.env.PORT || 5001;
 
+// Validate required environment variables
+if (!process.env.MONGODB_URI) {
+  console.error("❌ Error: MONGODB_URI is not set in environment variables");
+  process.exit(1);
+}
+
 // Middleware
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ limit: "10mb" }));
