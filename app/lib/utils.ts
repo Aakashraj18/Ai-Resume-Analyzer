@@ -21,6 +21,14 @@ export function formatDate(dateString: string): string {
   });
 }
 
+export function formatTime(dateString: string): string {
+  return new Date(dateString).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+}
+
 export function getScoreColor(score: number): string {
   if (score >= 70) return "text-emerald-400";
   if (score >= 50) return "text-amber-400";
