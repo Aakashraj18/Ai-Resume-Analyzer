@@ -19,9 +19,11 @@ interface AuthContextType {
   token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
+  error: string | null;
   login: (email: string, password: string) => Promise<void>;
   register: (username: string, email: string, password: string) => Promise<void>;
   logout: () => void;
+  clearError: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
