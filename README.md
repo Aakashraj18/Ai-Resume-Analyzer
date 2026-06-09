@@ -11,6 +11,9 @@ AI Resume Analyzer is a full-stack web application that helps job seekers optimi
 - Responsive React UI with reusable components and modern design
 - Server-side API built with Express and React Router
 
+## Live Link
+- https://ai-resume-analyzer-c7b2.onrender.com
+
 ## Technology Stack
 
 ### Frontend
