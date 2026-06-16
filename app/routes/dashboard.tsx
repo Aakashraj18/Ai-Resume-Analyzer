@@ -43,7 +43,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="bg-[url('/images/bg-main.svg')] bg-cover bg-center min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
 
       <main className="flex-1 page-container flex flex-col w-full">
