@@ -5,6 +5,7 @@ import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/auth.routes.js";
 import uploadRoutes from "./routes/upload.routes.js";
 import analysisRoutes from "./routes/analysis.routes.js";
+import interviewRoutes from "./routes/interview.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/analyses", analysisRoutes);
+app.use("/api/interview", interviewRoutes);
 
 // Health check
 app.get("/api/health", (_req, res) => {
