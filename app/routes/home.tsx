@@ -33,9 +33,9 @@ export default function Home() {
             Powered by Gemini AI
           </div>
           
-          <h1 className="mb-6">
+          <h1 className="mb-6 text-white">
             Beat the bots.<br />
-            Land your <span className="text-gradient">dream job.</span>
+            Land your dream job.
           </h1>
           
           <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -109,20 +109,20 @@ export default function Home() {
       <section className="w-full border-y border-white/5 bg-white/[0.02] py-16 px-4 mt-20">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">90%+</div>
-            <p className="text-slate-500 text-sm">Fortune 500 companies use ATS</p>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">90%+</div>
+            <p className="text-slate-400 text-base">Fortune 500 companies use ATS</p>
           </div>
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">75%</div>
-            <p className="text-slate-500 text-sm">Resumes rejected before a human sees them</p>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">75%</div>
+            <p className="text-slate-400 text-base">Resumes rejected before a human sees them</p>
           </div>
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">5 min</div>
-            <p className="text-slate-500 text-sm">Average time to optimize your resume</p>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">5 min</div>
+            <p className="text-slate-400 text-base">Average time to optimize your resume</p>
           </div>
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">∞</div>
-            <p className="text-slate-500 text-sm">Unlimited free scans, no paywall</p>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">∞</div>
+            <p className="text-slate-400 text-base">Unlimited free scans, no paywall</p>
           </div>
         </div>
       </section>
