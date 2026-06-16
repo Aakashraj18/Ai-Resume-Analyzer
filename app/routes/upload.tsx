@@ -114,7 +114,7 @@ export default function Upload() {
   };
 
   return (
-    <div className="bg-[url('/images/bg-main.svg')] bg-cover bg-center min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
       <Navbar />
 
       <main className="flex-1 page-container flex flex-col w-full max-w-4xl">
