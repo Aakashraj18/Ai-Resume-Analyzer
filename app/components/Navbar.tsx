@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { useAuth } from "~/lib/auth";
 import { useTheme } from "~/lib/theme";
 
