@@ -79,7 +79,7 @@ export default function Auth() {
               <span className="text-white font-bold text-2xl">A</span>
             </div>
           </Link>
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome to ATS Genius</h1>
+          <h1 className="text-3xl font-bold text-white mb-2 whitespace-nowrap">Welcome to ATS Genius</h1>
           <p className="text-slate-400">Your AI-powered resume career coach.</p>
         </div>
 
@@ -111,7 +111,7 @@ export default function Auth() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {!isLogin && (
               <div className="form-group">
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Name</label>
                 <input
                   id="username"
                   type="text"
@@ -119,7 +119,7 @@ export default function Auth() {
                   autoComplete="username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="johndoe"
+                  placeholder="Name"
                 />
               </div>
             )}
@@ -133,7 +133,7 @@ export default function Auth() {
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder="you@gmail.com"
               />
             </div>
 
