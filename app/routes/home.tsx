@@ -158,6 +158,39 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* HR Interview Portal Advertisement Section */}
+        <div className="mt-32 max-w-5xl w-full animate-fade-in-up flex flex-col items-center gap-10 pb-32 z-10" style={{ animationDelay: "0.4s" }}>
+          <div className="glass-card w-full p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div className="flex-1 flex flex-col gap-6 text-center md:text-left z-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium w-fit mx-auto md:mx-0">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+                New Feature
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Interactive HR Prep Portal</h2>
+              
+              <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
+                Don't just fix your resume—ace the interview. Enter any company and job role to instantly generate tailored HR and technical questions. Practice your answers in real-time and get them graded by our AI.
+              </p>
+            </div>
+
+            <div className="z-10 flex-shrink-0">
+              <Link to="/hr-portal" className="primary-button text-lg px-8 py-5 flex items-center gap-3 group relative overflow-hidden bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 border-none shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+                <span className="relative z-10">Try the HR Portal</span>
+                <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

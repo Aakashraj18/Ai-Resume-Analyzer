@@ -9,5 +9,6 @@ export default [
     route("/upload", "routes/upload.tsx"),
     route("/dashboard", "routes/dashboard.tsx"),
     route("/resume/:id", "routes/resume.$id.tsx"),
+    route("/hr-portal", "routes/hr-portal.tsx"),
   ]),
 ] satisfies RouteConfig;
