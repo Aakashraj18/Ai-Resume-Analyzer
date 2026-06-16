@@ -104,7 +104,7 @@ export default function HRPortal() {
   const visibleQuestions = questions.slice(currentPage * 10, (currentPage + 1) * 10);
 
   return (
-    <div className="bg-[url('/images/bg-main.svg')] bg-cover bg-center min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
 
       <main className="flex-1 page-container flex flex-col w-full max-w-4xl pb-24">

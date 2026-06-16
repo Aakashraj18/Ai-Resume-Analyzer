@@ -54,12 +54,16 @@ export default function Navbar() {
             >
               Dashboard
             </Link>
-            <Link
-              to="/hr-portal"
-              className="text-sm text-slate-400 hover:text-emerald-400 transition-colors hidden md:block"
+            <NavLink
+              to="/portal"
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors hover:text-emerald-400 ${
+                  isActive ? "text-emerald-400" : "text-slate-400"
+                } hidden md:block`
+              }
             >
               Practice Interviews
-            </Link>
+            </NavLink>
             <Link to="/upload" className="primary-button !py-2 !px-4 text-sm hidden sm:flex">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -93,7 +97,7 @@ export default function Navbar() {
                       Dashboard
                     </Link>
                     <Link
-                      to="/hr-portal"
+                      to="/portal"
                       className="block px-4 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white md:hidden"
                       onClick={() => setIsDropdownOpen(false)}
                     >
