@@ -24,17 +24,22 @@ Return this exact JSON structure:
   "matchSummary": "<2-3 sentence summary of how well the resume matches the job>",
   "missingKeywords": ["<keyword1>", "<keyword2>", ...],
   "formattingFeedback": "<1-2 sentences about resume formatting for ATS>",
-  "actionableTips": ["<tip1>", "<tip2>", "<tip3>", ...]
+  "actionableTips": ["<tip1>", "<tip2>", "<tip3>", ...],
+  "hrQuestions": ["<question1>", "<question2>", "<question3>"],
+  "rewrittenBullets": [
+    { "original": "<weak resume bullet>", "improved": "<STAR-method rewritten bullet with metrics if possible>" }
+  ]
 }
 
 Scoring guidelines:
-- 90-100: Excellent match, strong keyword alignment, great formatting
-- 70-89: Good match, some missing keywords or minor formatting issues
-- 50-69: Moderate match, several important keywords missing
-- 30-49: Weak match, significant gaps between resume and job requirements
-- 0-29: Poor match, resume needs major revision for this role
+- QUANTITATIVE IMPACT: Crucial! Does the resume include quantifiable metrics (e.g., number of users, % latency reduction, team size)? If NO, penalize the score significantly (deduct 10-20 points).
+- 90-100: Excellent match, strong keyword alignment, great formatting, strong quantifiable metrics.
+- 70-89: Good match, some missing keywords, minor formatting issues, or lacks some metrics.
+- 50-69: Moderate match, several important keywords missing, weak quantitative impact.
+- 30-49: Weak match, significant gaps, vague descriptions lacking numbers.
+- 0-29: Poor match, needs major revision.
 
-Be honest, specific, and actionable. Reference actual keywords from the job description.`;
+Be honest, specific, and actionable. Reference actual keywords from the job description. Provide 3-5 tailored HR questions in 'hrQuestions', and rewrite 2-3 weak bullets in 'rewrittenBullets'.`;
 
 export async function analyzeResume(
   resumeText: string,
@@ -116,5 +121,12 @@ Analyze this resume against the job description and return the JSON result.`;
     missingKeywords: parsed.missingKeywords.map(String),
     formattingFeedback: parsed.formattingFeedback,
     actionableTips: parsed.actionableTips.map(String),
+    hrQuestions: Array.isArray(parsed.hrQuestions) ? parsed.hrQuestions.map(String) : [],
+    rewrittenBullets: Array.isArray(parsed.rewrittenBullets) 
+      ? parsed.rewrittenBullets.map((b: any) => ({
+          original: String(b?.original || ""),
+          improved: String(b?.improved || "")
+        }))
+      : [],
   };
 }

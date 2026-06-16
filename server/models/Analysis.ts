@@ -6,6 +6,8 @@ export interface IATSResult {
   missingKeywords: string[];
   formattingFeedback: string;
   actionableTips: string[];
+  hrQuestions?: string[];
+  rewrittenBullets?: { original: string; improved: string }[];
 }
 
 export interface IAnalysis extends Document {
@@ -62,6 +64,13 @@ const analysisSchema = new Schema<IAnalysis>(
       missingKeywords: [{ type: String }],
       formattingFeedback: { type: String, required: true },
       actionableTips: [{ type: String }],
+      hrQuestions: [{ type: String }],
+      rewrittenBullets: [
+        {
+          original: { type: String },
+          improved: { type: String },
+        },
+      ],
     },
   },
   {
