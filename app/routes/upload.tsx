@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Navbar from "~/components/Navbar";
 import FileUploader from "~/components/FileUploader";
 import LoadingSpinner, { type LoadingStep } from "~/components/LoadingSpinner";
@@ -117,13 +117,16 @@ export default function Upload() {
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       <Navbar />
 
-      <main className="flex-1 page-container flex flex-col w-full max-w-4xl">
-        <div className="relative flex flex-col items-center text-center mb-10 animate-fade-in-up">
-          <Link to="/" className="sm:absolute sm:left-0 sm:top-2 self-start sm:self-auto mb-4 sm:mb-0 p-2 -ml-2 sm:ml-0 rounded-full hover:bg-slate-800/50 text-slate-400 hover:text-indigo-400 transition-colors" title="Back to Home">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-          </Link>
+      <div className="w-full px-6 md:px-10 mt-6">
+        <Link to="/" className="inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 text-slate-400 hover:text-indigo-400 transition-colors" title="Back">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+        </Link>
+      </div>
+
+      <main className="flex-1 page-container pt-2 flex flex-col w-full max-w-4xl">
+        <div className="relative mb-10 animate-fade-in-up">
           <h1 className="text-4xl md:text-5xl mb-4">Analyze Your Resume</h1>
           <p className="text-lg text-slate-400">Provide the job details to see how well you match.</p>
         </div>
