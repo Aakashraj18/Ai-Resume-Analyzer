@@ -19,6 +19,7 @@ export const links: Route.LinksFunction = () => [
     href: "https://fonts.gstatic.com",
     crossOrigin: "anonymous",
   },
+  { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
