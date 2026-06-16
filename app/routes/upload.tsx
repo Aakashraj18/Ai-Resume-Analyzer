@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import Navbar from "~/components/Navbar";
 import FileUploader from "~/components/FileUploader";
 import LoadingSpinner, { type LoadingStep } from "~/components/LoadingSpinner";
+import AtsGuidelines from "~/components/AtsGuidelines";
 import { apiFetch } from "~/lib/api";
 import { extractTextFromPdf } from "~/lib/pdfExtractor";
 
@@ -192,6 +193,8 @@ export default function Upload() {
             </button>
           </form>
         )}
+
+        <AtsGuidelines />
       </main>
     </div>
   );
