@@ -237,12 +237,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          <div className="glass-card p-6 mt-8 text-center">
-            <p className="text-slate-400 text-sm">
-              <strong className="text-white">Final Score</strong> = (Keyword × 0.30) + (Skills × 0.25) + (Experience × 0.20) + (Quantitative × 0.15) + (Formatting × 0.10) — <span className="text-rose-400">Penalty for missing keywords</span>
-            </p>
-          </div>
         </div>
       </section>
 

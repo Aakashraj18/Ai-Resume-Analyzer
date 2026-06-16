@@ -71,19 +71,19 @@ export default function Auth() {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden items-center justify-center p-4">
-      <div className="w-full max-w-md animate-fade-in-up">
+      <div className="w-full max-w-2xl animate-fade-in-up">
         
         <div className="text-center mb-8">
           <Link to="/" className="inline-block mb-4">
-            <div className="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-emerald-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-              <span className="text-white font-bold text-2xl">A</span>
+            <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-emerald-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+              <span className="font-bold text-xl" style={{ color: "white" }}>ATS</span>
             </div>
           </Link>
-          <h1 className="text-3xl font-bold text-white mb-2 whitespace-nowrap">Welcome to ATS Genius</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2 whitespace-nowrap">Welcome to ATS Genius</h1>
           <p className="text-slate-400">Your AI-powered resume career coach.</p>
         </div>
 
-        <div className="glass-card p-8">
+        <div className="glass-card p-8 max-w-md mx-auto">
           {/* Tabs */}
           <div className="flex p-1 bg-slate-900/50 rounded-xl mb-6">
             <button
