@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ScoreRing from "./ScoreRing";
 
 interface ATSResult {
@@ -6,11 +7,13 @@ interface ATSResult {
   missingKeywords: string[];
   formattingFeedback: string;
   actionableTips: string[];
-  hrQuestions?: string[];
+  hrQuestions?: { question: string; answer: string }[];
   rewrittenBullets?: { original: string; improved: string }[];
 }
 
 export default function ATSResultCard({ result }: { result: ATSResult }) {
+  const [expandedQ, setExpandedQ] = useState<number | null>(null);
+
   return (
     <div className="flex flex-col gap-6">
       {/* Top Section: Score & Summary */}
@@ -128,7 +131,7 @@ export default function ATSResultCard({ result }: { result: ATSResult }) {
         </div>
       )}
 
-      {/* HR Interview Portal */}
+      {/* HR Interview Preparation with Answers */}
       {result.hrQuestions && result.hrQuestions.length > 0 && (
         <div className="glass-card p-6 flex flex-col gap-6 mt-2">
           <div className="flex items-center gap-3">
@@ -138,16 +141,45 @@ export default function ATSResultCard({ result }: { result: ATSResult }) {
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-white">Interview Preparation</h3>
+            <span className="ml-auto text-xs text-slate-500 font-medium">{result.hrQuestions.length} Questions</span>
           </div>
-          <p className="text-slate-400 text-sm">Based on the gap between your resume and the job description, prepare for these tailored HR and technical questions.</p>
+          <p className="text-slate-400 text-sm">Based on the gap between your resume and the job description, prepare for these tailored HR and technical questions. Click any question to reveal the model answer.</p>
           
           <ul className="flex flex-col gap-3">
-            {result.hrQuestions.map((q, i) => (
-              <li key={i} className="flex items-start gap-3 bg-slate-800/40 border border-white/5 rounded-xl p-4 transition-all hover:bg-slate-800/60">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-bold mt-0.5">{i + 1}</span>
-                <span className="text-slate-200 text-sm leading-relaxed">{q}</span>
-              </li>
-            ))}
+            {result.hrQuestions.map((q, i) => {
+              const questionText = typeof q === "string" ? q : q.question;
+              const answerText = typeof q === "string" ? "" : q.answer;
+              const isExpanded = expandedQ === i;
+
+              return (
+                <li key={i} className="flex flex-col">
+                  <button
+                    onClick={() => setExpandedQ(isExpanded ? null : i)}
+                    className="flex items-start gap-3 bg-slate-800/40 border border-white/5 rounded-xl p-4 transition-all hover:bg-slate-800/60 w-full text-left cursor-pointer"
+                    style={isExpanded ? { borderBottomLeftRadius: 0, borderBottomRightRadius: 0, borderBottom: "none" } : {}}
+                  >
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-bold mt-0.5">{i + 1}</span>
+                    <span className="text-slate-200 text-sm leading-relaxed flex-1">{questionText}</span>
+                    <svg
+                      className={`w-5 h-5 text-slate-500 shrink-0 mt-0.5 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {isExpanded && answerText && (
+                    <div className="bg-purple-500/5 border border-white/5 border-t-0 rounded-b-xl p-4">
+                      <div className="ml-9 flex flex-col gap-2">
+                        <span className="text-xs font-bold text-purple-400 uppercase tracking-wider">Model Answer</span>
+                        <p className="text-slate-300 text-sm leading-relaxed">{answerText}</p>
+                      </div>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

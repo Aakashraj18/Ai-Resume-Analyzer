@@ -99,7 +99,7 @@ Analyze this resume against the job description and return the JSON result.`;
     config: {
       systemInstruction: SYSTEM_PROMPT,
       temperature: 0.2,
-      maxOutputTokens: 2048,
+      maxOutputTokens: 4096,
     },
   });
 
