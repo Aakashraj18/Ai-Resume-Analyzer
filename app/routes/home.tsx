@@ -19,7 +19,7 @@ export default function Home() {
       <Navbar />
 
       {/* ─── HERO SECTION ─── */}
-      <section className="relative min-h-[85vh] flex flex-col items-center pt-24 md:pt-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative min-h-[85vh] flex flex-col items-center pt-8 md:pt-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Glow Orbs */}
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -126,8 +126,8 @@ export default function Home() {
             </p>
           </div>
           <div className="flex-shrink-0">
-            <Link to="/hr-portal" className="primary-button text-lg px-8 py-5 flex items-center gap-3 group bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 border-none shadow-[0_0_30px_rgba(139,92,246,0.3)]">
-              <span>Try the HR Portal</span>
+            <Link to="/portal" className="primary-button text-lg px-8 py-5 flex items-center gap-3 group bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 border-none shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+              <span>Try the Portal</span>
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -414,7 +414,7 @@ export default function Home() {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-5">Get Started</h4>
             <ul className="flex flex-col gap-3">
               <li><Link to="/upload" className="text-slate-400 text-sm hover:text-emerald-400 transition-colors">Scan Your Resume</Link></li>
-              <li><Link to="/hr-portal" className="text-slate-400 text-sm hover:text-emerald-400 transition-colors">Practice Interviews</Link></li>
+              <li><Link to="/portal" className="text-slate-400 text-sm hover:text-emerald-400 transition-colors">Practice Interviews</Link></li>
               <li><Link to="/dashboard" className="text-slate-400 text-sm hover:text-emerald-400 transition-colors">Your Dashboard</Link></li>
               <li><Link to="/auth" className="text-slate-400 text-sm hover:text-emerald-400 transition-colors">Create Account</Link></li>
               <li><Link to="/auth?tab=login" className="text-slate-400 text-sm hover:text-emerald-400 transition-colors">Sign In</Link></li>
