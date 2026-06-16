@@ -22,6 +22,12 @@ export default function Navbar() {
             >
               Dashboard
             </Link>
+            <Link
+              to="/hr-portal"
+              className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block"
+            >
+              Practice Interviews
+            </Link>
             <Link to="/upload" className="primary-button !py-2 !px-4 text-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
