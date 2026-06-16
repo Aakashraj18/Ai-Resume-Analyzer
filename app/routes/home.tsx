@@ -15,11 +15,11 @@ export default function Home() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="bg-slate-950 flex flex-col relative overflow-hidden">
+    <div className="flex flex-col relative overflow-hidden">
       <Navbar />
 
       {/* ─── HERO SECTION ─── */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative min-h-[85vh] flex flex-col items-center pt-24 md:pt-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Glow Orbs */}
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -101,6 +101,37 @@ export default function Home() {
             <p className="text-slate-400 text-sm leading-relaxed">
               Receive specific, actionable feedback on formatting, structure, and content to improve your chances of landing an interview.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── HR PREP PORTAL CTA ─── */}
+      <section className="w-full py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 relative overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-80 h-80 bg-purple-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div className="max-w-5xl mx-auto glass-card p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+          <div className="flex-1 flex flex-col gap-6 text-center md:text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium w-fit mx-auto md:mx-0">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+              New Feature
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-6 leading-tight">
+              Interactive Preparation Portal
+            </h2>
+            <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
+              Don't just fix your resume — ace the interview. Enter any company and job role to instantly generate tailored HR and technical questions. Practice your answers in real-time and get them graded by our AI.
+            </p>
+          </div>
+          <div className="flex-shrink-0">
+            <Link to="/hr-portal" className="primary-button text-lg px-8 py-5 flex items-center gap-3 group bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 border-none shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+              <span>Try the HR Portal</span>
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
@@ -372,37 +403,6 @@ export default function Home() {
             You shouldn't have to pay every time you tailor your resume for a new job. With ATS Genius, every scan is <strong className="text-white">completely free</strong> — upload as many resume + job description combos as you want.
           </p>
           <p className="text-slate-500 text-sm">No credit card. No paywall. No limits.</p>
-        </div>
-      </section>
-
-      {/* ─── HR PREP PORTAL CTA ─── */}
-      <section className="w-full py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 relative overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-80 h-80 bg-purple-500/15 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div className="max-w-5xl mx-auto glass-card p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
-          <div className="flex-1 flex flex-col gap-6 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium w-fit mx-auto md:mx-0">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-              </svg>
-              New Feature
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-6 leading-tight">
-              Interactive Preparation Portal
-            </h2>
-            <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
-              Don't just fix your resume — ace the interview. Enter any company and job role to instantly generate tailored HR and technical questions. Practice your answers in real-time and get them graded by our AI.
-            </p>
-          </div>
-          <div className="flex-shrink-0">
-            <Link to="/hr-portal" className="primary-button text-lg px-8 py-5 flex items-center gap-3 group bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 border-none shadow-[0_0_30px_rgba(139,92,246,0.3)]">
-              <span>Try the HR Portal</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </section>
 

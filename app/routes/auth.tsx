@@ -70,7 +70,7 @@ export default function Auth() {
   }
 
   return (
-    <div className="min-h-screen bg-[url('/images/bg-auth.svg')] bg-cover bg-center flex items-center justify-center p-4">
+    <div className="min-h-screen flex flex-col relative overflow-hidden items-center justify-center p-4">
       <div className="w-full max-w-md animate-fade-in-up">
         
         <div className="text-center mb-8">
