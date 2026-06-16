@@ -118,7 +118,12 @@ export default function Upload() {
       <Navbar />
 
       <main className="flex-1 page-container flex flex-col w-full max-w-4xl">
-        <div className="text-center mb-10 animate-fade-in-up">
+        <div className="relative flex flex-col items-center text-center mb-10 animate-fade-in-up">
+          <Link to="/" className="sm:absolute sm:left-0 sm:top-2 self-start sm:self-auto mb-4 sm:mb-0 p-2 -ml-2 sm:ml-0 rounded-full hover:bg-slate-800/50 text-slate-400 hover:text-indigo-400 transition-colors" title="Back to Home">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+          </Link>
           <h1 className="text-4xl md:text-5xl mb-4">Analyze Your Resume</h1>
           <p className="text-lg text-slate-400">Provide the job details to see how well you match.</p>
         </div>

@@ -48,9 +48,16 @@ export default function Dashboard() {
 
       <main className="flex-1 page-container flex flex-col w-full">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
-          <div>
-            <h1 className="text-4xl mb-2">Dashboard</h1>
-            <p className="text-slate-400">Track your resume applications and ATS scores.</p>
+          <div className="flex items-start gap-4">
+            <Link to="/" className="p-2 mt-1 -ml-2 rounded-full hover:bg-slate-800/50 text-slate-400 hover:text-indigo-400 transition-colors" title="Back to Home">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+            </Link>
+            <div>
+              <h1 className="text-4xl mb-2">Dashboard</h1>
+              <p className="text-slate-400">Track your resume applications and ATS scores.</p>
+            </div>
           </div>
           <Link to="/upload" className="primary-button">
             <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
