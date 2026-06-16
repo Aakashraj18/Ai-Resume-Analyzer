@@ -195,3 +195,110 @@ textarea {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+/* ─── Light Mode ──────────────────────────────────────── */
+html.light,
+html.light body {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+html.light .glass-card,
+html.light .glass-card-hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+html.light .glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+html.light .navbar {
+  background: rgba(248, 250, 252, 0.85);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+html.light h1,
+html.light h2,
+html.light h3 {
+  color: #0f172a;
+}
+
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-300 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.light .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+html.light input[type="text"],
+html.light input[type="email"],
+html.light input[type="password"],
+html.light textarea {
+  background: rgba(241, 245, 249, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8;
+}
+
+html.light .bg-slate-950 {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-slate-900\/50 {
+  background-color: rgba(241, 245, 249, 0.8) !important;
+}
+
+html.light .bg-slate-800\/40,
+html.light .bg-slate-800\/60,
+html.light .bg-slate-800\/80 {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+}
+
+html.light .border-white\/5,
+html.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light .secondary-button {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #475569;
+}
+
+html.light .secondary-button:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
