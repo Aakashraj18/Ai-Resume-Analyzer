@@ -460,7 +460,7 @@ export default function Home() {
               <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-400 to-indigo-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xs">A</span>
               </div>
-              <span className="text-sm font-bold text-gradient">ATS GENIUS</span>
+              <span className="text-sm font-bold text-white">ATS GENIUS</span>
 
               {/* Theme Toggle */}
               <button
