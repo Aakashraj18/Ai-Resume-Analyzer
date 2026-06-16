@@ -1,20 +1,20 @@
 import { Router } from "express";
 import { authenticate, type AuthRequest } from "../middleware/auth.js";
-import { generateInterviewQuestions, gradeInterviewAnswers } from "../services/gemini.js";
+import { generatePersonalizedQuestions, gradeInterviewAnswers } from "../services/gemini.js";
 
 const router = Router();
 
 // POST /api/interview/generate
 router.post("/generate", authenticate, async (req: AuthRequest, res) => {
   try {
-    const { companyName, jobTitle } = req.body;
+    const { companyName, jobTitle, resumeText } = req.body;
 
-    if (!companyName || !jobTitle) {
-      res.status(400).json({ error: "companyName and jobTitle are required." });
+    if (!companyName || !jobTitle || !resumeText) {
+      res.status(400).json({ error: "companyName, jobTitle, and resumeText are required." });
       return;
     }
 
-    const questions = await generateInterviewQuestions(companyName, jobTitle);
+    const questions = await generatePersonalizedQuestions(companyName, jobTitle, resumeText);
     res.json({ questions });
   } catch (error: any) {
     console.error("Generate questions error:", error);
