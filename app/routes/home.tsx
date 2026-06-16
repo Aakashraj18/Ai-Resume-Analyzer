@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import Navbar from "~/components/Navbar";
 import { useAuth } from "~/lib/auth";
+import { useTheme } from "~/lib/theme";
 
 export function meta() {
   return [
@@ -11,6 +12,7 @@ export function meta() {
 
 export default function Home() {
   const { isAuthenticated } = useAuth();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="bg-slate-950 flex flex-col relative overflow-hidden">
@@ -454,11 +456,28 @@ export default function Home() {
         {/* Bottom Footer — Copyright */}
         <div className="border-t border-white/5 py-8 px-4">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-400 to-indigo-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xs">A</span>
               </div>
               <span className="text-sm font-bold text-gradient">ATS GENIUS</span>
+
+              {/* Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all duration-300 cursor-pointer ml-2"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                )}
+              </button>
             </div>
             <p className="text-slate-600 text-sm">© {new Date().getFullYear()} ATS Genius. Powered by Gemini AI. All rights reserved.</p>
             <div className="flex items-center gap-6">

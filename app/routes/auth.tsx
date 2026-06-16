@@ -24,7 +24,7 @@ export default function Auth() {
 
   useEffect(() => {
     if (!isLoading && isAuthenticated) {
-      navigate("/dashboard", { replace: true });
+      navigate("/", { replace: true });
     }
   }, [isLoading, isAuthenticated, navigate]);
 
@@ -48,7 +48,7 @@ export default function Auth() {
       } else {
         await register(username, email, password);
       }
-      navigate("/dashboard");
+      navigate("/");
     } catch (err: any) {
       setError(err.message || "An error occurred. Please try again.");
     } finally {
