@@ -23,9 +23,9 @@ export default function Navbar() {
     <nav className="navbar relative z-50">
       <Link to="/" className="flex items-center gap-2">
         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-indigo-500 flex items-center justify-center">
-          <span className="text-white font-bold text-sm">A</span>
+          <span className="font-bold text-sm" style={{ color: "white" }}>A</span>
         </div>
-        <span className="text-xl font-bold text-white hidden sm:block">ATS GENIUS</span>
+        <span className="text-xl font-bold text-white">ATS GENIUS</span>
       </Link>
 
       <div className="flex items-center gap-3">
