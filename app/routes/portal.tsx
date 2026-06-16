@@ -13,7 +13,7 @@ export function meta() {
 
 interface IPersonalizedQuestion {
   question: string;
-  difficulty: "easy" | "hard";
+  difficulty: "easy" | "medium" | "hard";
   suggestedAnswer: string;
 }
 
@@ -233,14 +233,18 @@ export default function HRPortal() {
                   <div className="flex items-start gap-3 justify-between">
                     <div className="flex items-start gap-3">
                       <span className={`flex-shrink-0 w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center mt-1 ${
-                        q.difficulty === 'easy' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-rose-500/20 text-rose-400'
+                        q.difficulty === 'easy' ? 'bg-emerald-500/20 text-emerald-400' : 
+                        q.difficulty === 'medium' ? 'bg-amber-500/20 text-amber-400' : 
+                        'bg-rose-500/20 text-rose-400'
                       }`}>
                         Q{globalIndex + 1}
                       </span>
                       <p className="text-lg text-white font-medium leading-relaxed">{q.question}</p>
                     </div>
                     <span className={`text-xs uppercase tracking-wider font-bold px-2 py-1 rounded ${
-                      q.difficulty === 'easy' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'
+                      q.difficulty === 'easy' ? 'bg-emerald-500/10 text-emerald-400' : 
+                      q.difficulty === 'medium' ? 'bg-amber-500/10 text-amber-400' : 
+                      'bg-rose-500/10 text-rose-400'
                     }`}>
                       {q.difficulty}
                     </span>
@@ -354,7 +358,9 @@ export default function HRPortal() {
                   <div className="flex items-start gap-3 justify-between">
                     <div className="flex items-start gap-3">
                       <span className={`flex-shrink-0 w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center mt-1 ${
-                        questions[i].difficulty === 'easy' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-rose-500/20 text-rose-400'
+                        questions[i].difficulty === 'easy' ? 'bg-emerald-500/20 text-emerald-400' : 
+                        questions[i].difficulty === 'medium' ? 'bg-amber-500/20 text-amber-400' : 
+                        'bg-rose-500/20 text-rose-400'
                       }`}>
                         Q{i + 1}
                       </span>

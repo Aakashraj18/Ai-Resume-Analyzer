@@ -203,7 +203,7 @@ Analyze this resume against the job description and return the JSON result.`;
 
 export interface IPersonalizedQuestion {
   question: string;
-  difficulty: "easy" | "hard";
+  difficulty: "easy" | "medium" | "hard";
   suggestedAnswer: string;
 }
 
@@ -221,9 +221,10 @@ ${resumeText}
 ---
 
 Generate exactly 20 highly relevant interview questions tailored to their specific resume experience and projects.
-The questions must be divided into:
-- 10 "easy" questions (basic behavioral, resume walk-through, standard role fit)
-- 10 "hard" questions (deep technical probing, difficult scenario questions, challenging their specific projects)
+The questions must be divided exactly as follows:
+- 5 "easy" questions (basic behavioral, resume walk-through, standard role fit)
+- 8 "medium" questions (moderate technical or scenario-based questions)
+- 7 "hard" questions (deep technical probing, difficult scenario questions, challenging their specific projects)
 
 For each question, also provide a strong "suggestedAnswer" indicating what you would expect a top-tier candidate to say.
 
@@ -232,7 +233,7 @@ The array must contain exactly 20 objects matching this exact structure:
 [
   {
     "question": "Question text here",
-    "difficulty": "easy" or "hard",
+    "difficulty": "easy", "medium", or "hard",
     "suggestedAnswer": "A strong suggested answer here"
   }
 ]`;
