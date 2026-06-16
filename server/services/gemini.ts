@@ -201,22 +201,46 @@ Analyze this resume against the job description and return the JSON result.`;
 
 
 
-export async function generateInterviewQuestions(
-  company: string,
-  role: string
-): Promise<string[]> {
-  const client = getClient();
-  const prompt = `You are an expert technical recruiter and HR manager.
-Generate exactly 5 highly relevant interview questions (a mix of behavioral, cultural, and role-specific/technical) for a candidate applying for the position of "${role}" at "${company}".
+export interface IPersonalizedQuestion {
+  question: string;
+  difficulty: "easy" | "hard";
+  suggestedAnswer: string;
+}
 
-You MUST return ONLY a valid JSON array of strings — no markdown, no backticks, no extra text.
-The first character of your response must be [ and the last must be ].
-Example: ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"]`;
+export async function generatePersonalizedQuestions(
+  company: string,
+  role: string,
+  resumeText: string
+): Promise<IPersonalizedQuestion[]> {
+  const client = getClient();
+  const prompt = `You are an expert technical recruiter and HR manager for "${company}".
+You are interviewing a candidate for the position of "${role}".
+Below is the candidate's resume text:
+---
+${resumeText}
+---
+
+Generate exactly 20 highly relevant interview questions tailored to their specific resume experience and projects.
+The questions must be divided into:
+- 10 "easy" questions (basic behavioral, resume walk-through, standard role fit)
+- 10 "hard" questions (deep technical probing, difficult scenario questions, challenging their specific projects)
+
+For each question, also provide a strong "suggestedAnswer" indicating what you would expect a top-tier candidate to say.
+
+You MUST return ONLY a valid JSON array of objects — no markdown, no backticks, no extra text.
+The array must contain exactly 20 objects matching this exact structure:
+[
+  {
+    "question": "Question text here",
+    "difficulty": "easy" or "hard",
+    "suggestedAnswer": "A strong suggested answer here"
+  }
+]`;
 
   const response = await client.models.generateContent({
     model: "gemini-flash-lite-latest",
     contents: prompt,
-    config: { temperature: 0.7, maxOutputTokens: 1024 },
+    config: { temperature: 0.7, maxOutputTokens: 8192 },
   });
 
   let text = response.text ?? "[]";
@@ -225,7 +249,7 @@ Example: ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"]`
   try {
     const parsed = JSON.parse(text);
     if (!Array.isArray(parsed)) throw new Error("Not an array");
-    return parsed.map(String);
+    return parsed as IPersonalizedQuestion[];
   } catch {
     throw new Error("Failed to parse interview questions from AI.");
   }

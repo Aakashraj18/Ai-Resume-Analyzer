@@ -388,7 +388,9 @@ export default function Home() {
               </svg>
               New Feature
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Interactive HR Prep Portal</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-6 leading-tight">
+              Interactive Preparation Portal
+            </h2>
             <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
               Don't just fix your resume — ace the interview. Enter any company and job role to instantly generate tailored HR and technical questions. Practice your answers in real-time and get them graded by our AI.
             </p>
