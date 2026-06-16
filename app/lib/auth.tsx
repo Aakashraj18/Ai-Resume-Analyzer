@@ -70,32 +70,46 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  const [error, setErrorState] = useState<string | null>(null);
+
+  const clearError = useCallback(() => setErrorState(null), []);
+
   const login = useCallback(async (email: string, password: string) => {
-    const data = await apiFetch<{ token: string; user: User }>("/auth/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-    });
-
-    setToken(data.token);
-    setUser(data.user);
-    localStorage.setItem(TOKEN_KEY, data.token);
-    localStorage.setItem(USER_KEY, JSON.stringify(data.user));
-  }, []);
-
-  const register = useCallback(
-    async (username: string, email: string, password: string) => {
-      const data = await apiFetch<{ token: string; user: User }>(
-        "/auth/register",
-        {
-          method: "POST",
-          body: JSON.stringify({ username, email, password }),
-        }
-      );
+    try {
+      const data = await apiFetch<{ token: string; user: User }>("/auth/login", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      });
 
       setToken(data.token);
       setUser(data.user);
       localStorage.setItem(TOKEN_KEY, data.token);
       localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+    } catch (err: any) {
+      setErrorState(err.message || "Failed to login");
+      throw err;
+    }
+  }, []);
+
+  const register = useCallback(
+    async (username: string, email: string, password: string) => {
+      try {
+        const data = await apiFetch<{ token: string; user: User }>(
+          "/auth/register",
+          {
+            method: "POST",
+            body: JSON.stringify({ username, email, password }),
+          }
+        );
+
+        setToken(data.token);
+        setUser(data.user);
+        localStorage.setItem(TOKEN_KEY, data.token);
+        localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+      } catch (err: any) {
+        setErrorState(err.message || "Failed to register");
+        throw err;
+      }
     },
     []
   );
@@ -114,9 +128,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         token,
         isAuthenticated: !!user && !!token,
         isLoading,
+        error,
         login,
         register,
         logout,
+        clearError,
       }}
     >
       {children}

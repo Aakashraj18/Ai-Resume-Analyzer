@@ -116,6 +116,7 @@ export default function Auth() {
                   id="username"
                   type="text"
                   required={!isLogin}
+                  autoComplete="username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="johndoe"
@@ -129,6 +130,7 @@ export default function Auth() {
                 id="email"
                 type="email"
                 required
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
@@ -141,6 +143,7 @@ export default function Auth() {
                 id="password"
                 type="password"
                 required
+                autoComplete="current-password"
                 minLength={6}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
