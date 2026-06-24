@@ -17,7 +17,7 @@ export interface IAnalysis extends Document {
   jobTitle: string;
   jobDescription: string;
   resumeText: string;
-  pdfFileId: mongoose.Types.ObjectId;
+  pdfFileId: string;
   pdfFileName: string;
   result: IATSResult;
   createdAt: Date;
@@ -51,7 +51,7 @@ const analysisSchema = new Schema<IAnalysis>(
       required: true,
     },
     pdfFileId: {
-      type: Schema.Types.ObjectId,
+      type: String,
       required: true,
     },
     pdfFileName: {

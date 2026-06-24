@@ -1,8 +1,7 @@
 import { Response } from "express";
-import mongoose from "mongoose";
 import { AuthRequest } from "../middleware/auth.js";
 import { Analysis } from "../models/Analysis.js";
-import { getGridFSBucket } from "../config/db.js";
+import cloudinary from "../config/cloudinary.js";
 import { analyzeResume } from "../services/gemini.js";
 
 export const createAnalysis = async (req: AuthRequest, res: Response): Promise<void> => {
@@ -27,7 +26,7 @@ export const createAnalysis = async (req: AuthRequest, res: Response): Promise<v
       jobTitle,
       jobDescription,
       resumeText,
-      pdfFileId: new mongoose.mongo.ObjectId(fileId as string),
+      pdfFileId: fileId as string,
       pdfFileName: fileName || "resume.pdf",
       result,
     });
@@ -92,13 +91,11 @@ export const deleteAnalysis = async (req: AuthRequest, res: Response): Promise<v
       return;
     }
 
-    // Delete GridFS file
+    // Delete Cloudinary file
     try {
-      const bucket = getGridFSBucket();
-      await bucket.delete(analysis.pdfFileId);
+      await cloudinary.uploader.destroy(analysis.pdfFileId, { resource_type: "raw" });
     } catch {
-      // File might already be deleted — continue
-      console.warn("GridFS file not found, continuing delete.");
+      console.warn("Cloudinary file not found or deletion failed, continuing delete.");
     }
 
     await Analysis.deleteOne({ _id: analysis._id });
@@ -108,3 +105,4 @@ export const deleteAnalysis = async (req: AuthRequest, res: Response): Promise<v
     res.status(500).json({ error: "Failed to delete analysis." });
   }
 };
+
