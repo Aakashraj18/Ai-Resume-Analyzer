@@ -104,7 +104,7 @@ export default function ResumeDetail() {
 
   if (isLoading) {
     return (
-      <div className="bg-[url('/images/bg-main.svg')] bg-cover bg-center min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="flex-1 flex items-center justify-center">
           <div className="w-10 h-10 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
@@ -115,7 +115,7 @@ export default function ResumeDetail() {
 
   if (error || !analysis) {
     return (
-      <div className="bg-[url('/images/bg-main.svg')] bg-cover bg-center min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="flex-1 flex flex-col items-center justify-center p-4 text-center">
           <div className="w-16 h-16 rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-4">
@@ -134,7 +134,7 @@ export default function ResumeDetail() {
   }
 
   return (
-    <div className="bg-[url('/images/bg-main.svg')] bg-cover bg-center min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
 
       <main className="flex-1 page-container flex flex-col lg:flex-row gap-8 w-full max-w-[1600px] py-4 lg:py-8">
