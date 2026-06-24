@@ -21,8 +21,8 @@ const upload = multer({
 // POST /api/upload — Upload PDF to Cloudinary
 router.post("/", authenticate, upload.single("pdf"), uploadPdf);
 
-// GET /api/upload/:id — Stream/Redirect PDF from Cloudinary
-router.get("/:id", authenticate, streamPdf);
+// GET /api/upload/:folder/:id — Stream/Redirect PDF from Cloudinary
+router.get("/:folder/:id", authenticate, streamPdf);
 
 export default router;
 

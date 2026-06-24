@@ -86,7 +86,8 @@ export default function ResumeDetail() {
         
         if (res.ok) {
           const blob = await res.blob();
-          objectUrl = URL.createObjectURL(blob);
+          const pdfBlob = new Blob([blob], { type: "application/pdf" });
+          objectUrl = URL.createObjectURL(pdfBlob);
           setPdfUrl(objectUrl);
         }
       } catch (err) {
